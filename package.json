@@ -1,0 +1,66 @@
+{
+  "name": "@xt0rted/expressive-code-file-icons",
+  "version": "1.0.0",
+  "description": "Add Visual Studio Code file icons to Expressive Code frames",
+  "keywords": [
+    "astro",
+    "expressive-code",
+    "file-icons",
+    "rehype",
+    "remark"
+  ],
+  "homepage": "https://github.com/xt0rted/expressive-code-file-icons",
+  "bugs": {
+    "url": "https://github.com/xt0rted/expressive-code-file-icons/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xt0rted/expressive-code-file-icons.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/xt0rted"
+  },
+  "license": "MIT",
+  "author": "Brian Surowiec",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "clean": "rimraf dist",
+    "icons": "npm run icons:clean && npm run icons:process",
+    "icons:clean": "rimraf icons/default*folder*.svg icons/folder_*.svg --glob",
+    "icons:process": "svgo --config svgo.config.js --folder=icons --output=dist/icons",
+    "lint": "tsc --noEmit",
+    "package": "npm run clean && npm run icons && npm run build",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "types": "node --no-warnings=ExperimentalWarning ./scripts/generate-types.ts"
+  },
+  "dependencies": {
+    "@expressive-code/core": "^0.40.2",
+    "@expressive-code/plugin-frames": "^0.40.2",
+    "hast-util-from-html": "^2.0.3",
+    "picocolors": "^1.1.1",
+    "vscode-icons-js": "^11.6.1"
+  },
+  "devDependencies": {
+    "@expressive-code/plugin-shiki": "^0.40.2",
+    "@types/node": "^22.13.1",
+    "prettier": "^3.5.0",
+    "prettier-plugin-packagejson": "^2.5.8",
+    "rimraf": "^6.0.1",
+    "svgo": "^3.3.2",
+    "svgo-unique-id": "^1.0.0",
+    "typescript": "^5.7.3"
+  }
+}
