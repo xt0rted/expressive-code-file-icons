@@ -1,0 +1,23 @@
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = true
+indent_size = 4
+indent_style = space
+trim_trailing_whitespace = true
+
+[*.{js,cjs,mjs,ts,tsx}]
+indent_size = 2
+
+[*.json]
+indent_size = 2
+
+[*.{md,mdx}]
+indent_size = 2
+
+[*.svg]
+indent_size = 2
+
+[*.yml]
+indent_size = 2
