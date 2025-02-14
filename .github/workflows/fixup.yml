@@ -1,0 +1,86 @@
+name: Code cleanup
+
+on:
+  issue_comment:
+    types:
+      - created
+
+env:
+  FORCE_COLOR: 3
+
+jobs:
+  check-comment:
+    # The contains() check it used to filter out comments that can't be commands which saves on build minutes
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/fixup')
+
+    runs-on: ubuntu-latest
+
+    outputs:
+      tool: ${{ steps.command.outputs.command-name && steps.command.outputs.command-arguments }}
+
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: write
+
+    steps:
+      - name: Check for command
+        id: command
+        uses: xt0rted/slash-command-action@v2.0.0
+        continue-on-error: true
+        with:
+          command: fixup
+
+  run-fixup:
+    if: contains(fromJson('["eslint", "prettier"]'), needs.check-comment.outputs.tool)
+
+    needs: check-comment
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: write
+
+    steps:
+      - name: Get branch info
+        id: comment-branch
+        uses: xt0rted/pull-request-comment-branch@v3.0.0
+
+      - name: Generate token
+        id: generate-token
+        uses: tibdex/github-app-token@v2.1.0
+        with:
+          app_id: ${{ secrets.LINTING_FIXUP_APP_ID }}
+          private_key: ${{ secrets.LINTING_FIXUP_PRIVATE_KEY }}
+
+      - name: Check out repo
+        uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
+          token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Install Node
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version-file: .nvmrc
+
+      - run: npm ci
+
+      - name: ESlint
+        if: needs.check-comment.outputs.tool == 'eslint'
+        run: npm run eslint:fix
+
+      - name: Prettier
+        if: needs.check-comment.outputs.tool == 'prettier'
+        run: npm run prettier:fix
+
+      - run: git commit -a -m "Fix linting errors"
+        env:
+          GIT_AUTHOR_EMAIL: ${{ github.event.comment.user.id }}+${{ github.event.comment.user.login }}@users.noreply.github.com>
+          GIT_AUTHOR_NAME: ${{ github.event.comment.user.login }}
+          GIT_COMMITTER_EMAIL: 119837913+linting-fixup[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: linting-fixup[bot]
+
+      - run: git push

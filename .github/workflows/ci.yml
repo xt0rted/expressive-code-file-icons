@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FORCE_COLOR: 3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - 20
+          - 22
+          - 23
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4.2.2
+
+      - name: Install Node
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - run: npm run package
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4.6.0
+        with:
+          name: "node-${{ matrix.node }}"
+          compression-level: 9
+          path: dist/
+  lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - 20
+          - 22
+          - 23
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4.2.2
+
+      - name: Install Node
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npm run prettier
