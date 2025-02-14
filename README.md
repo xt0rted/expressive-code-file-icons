@@ -121,6 +121,8 @@ npm install @xt0rted/expressive-code-file-icons
 ```
 ````
 
+#### Output
+
 <img src="docs/images/terminal.png" width="468" alt="Terminal without a file icon">
 
 ## Supported icons
