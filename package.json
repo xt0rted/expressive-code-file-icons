@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@expressive-code/plugin-shiki": "^0.40.2",
-    "@types/node": "^22.13.1",
+    "@types/node": "^22.13.4",
     "prettier": "^3.5.0",
     "prettier-plugin-packagejson": "^2.5.8",
     "rimraf": "^6.0.1",
