@@ -3,7 +3,6 @@
 [![CI](https://github.com/xt0rted/expressive-code-file-icons/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xt0rted/expressive-code-file-icons/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/@xt0rted/expressive-code-file-icons)](https://www.npmjs.com/package/@xt0rted/expressive-code-file-icons)
 
-
 Add Visual Studio Code file icons to your [Expressive Code](https://expressive-code.com/) frames.
 
 ```console
