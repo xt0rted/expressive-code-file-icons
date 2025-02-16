@@ -1,14 +1,14 @@
-import fs from "node:fs/promises";
+import * as fs from "node:fs/promises";
 
 import { fromHtml } from "hast-util-from-html";
 import pc from "picocolors";
 import { DEFAULT_FILE, getIconForFile } from "vscode-icons-js";
 
-import { fileExists } from "./utils.js";
+import { fileExists } from "./node.js";
 
 import type { Element } from "@expressive-code/core/hast";
 
-import type { IconName } from "./icon-names.js";
+import type { IconName } from "../icon-names.js";
 
 async function lookUpIcon(iconOverride?: IconName): Promise<string | undefined> {
   if (iconOverride) {
