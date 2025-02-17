@@ -4,6 +4,7 @@
 [![npm](https://img.shields.io/npm/v/@xt0rted/expressive-code-file-icons)](https://www.npmjs.com/package/@xt0rted/expressive-code-file-icons)
 
 Add Visual Studio Code file icons to your [Expressive Code](https://expressive-code.com/) frames.
+See [my blog post](https://hackingonhacks.com/blog/2025/02/13/adding-file-icons-to-expressive-code-frames) showing how this works with various code blocks.
 
 ```console
 npm install @xt0rted/expressive-code-file-icons
