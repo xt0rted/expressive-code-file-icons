@@ -4,7 +4,7 @@ import * as path from "node:path";
 
 const typeFileName = "icon-names.ts";
 const typeFileLocation = "./src";
-const iconSource = "./icons";
+const iconSource = "./src/icons";
 
 const iconFiles = await fs.readdir(iconSource);
 

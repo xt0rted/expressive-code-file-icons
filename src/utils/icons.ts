@@ -14,7 +14,7 @@ async function lookUpIcon(iconOverride?: IconName): Promise<string | undefined> 
   if (iconOverride) {
     const overrideIconFileName = `file_type_${iconOverride}.svg`;
 
-    if (await fileExists(`icons/${overrideIconFileName}`)) {
+    if (await fileExists(`../icons/${overrideIconFileName}`)) {
       return overrideIconFileName;
     }
 
@@ -54,7 +54,7 @@ export async function iconForFile(
 ): Promise<Element | null> {
   const iconFileName = await selectIcon(fileName, language, iconOverride);
 
-  const iconFile = new URL(`icons/${iconFileName}`, import.meta.url);
+  const iconFile = new URL(`../icons/${iconFileName}`, import.meta.url);
 
   const iconSvg = await fs.readFile(iconFile, "utf8");
 
