@@ -71,3 +71,49 @@ jobs:
       - run: npm run lint
 
       - run: npm run prettier
+
+  release:
+    if: github.event_name == 'push'
+
+    needs:
+      - build
+      - lint
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: node-23
+
+      - run: tar -xzf xt0rted-expressive-code-file-icons-*.tgz
+
+      - name: Build preview version
+        working-directory: package
+        run: |
+          # Bump the version
+          npm version minor --no-git-tag-version
+
+          # Get current version
+          version=$(jq -r .version package.json)
+
+          # Add preview suffix
+          preview_version="${version}-gpr.${{ github.run_number }}"
+
+          # Update version in package.json
+          npm version $preview_version --no-git-tag-version
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.2.0
+        with:
+          registry-url: "https://npm.pkg.github.com"
+
+      - name: Publish to GPR
+        working-directory: package
+        run: npm whoami && npm publish --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
