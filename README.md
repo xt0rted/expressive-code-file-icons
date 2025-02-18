@@ -1,7 +1,8 @@
 # @xt0rted/expressive-code-file-icons
 
 [![CI](https://github.com/xt0rted/expressive-code-file-icons/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xt0rted/expressive-code-file-icons/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/@xt0rted/expressive-code-file-icons)](https://www.npmjs.com/package/@xt0rted/expressive-code-file-icons)
+[![npm](https://img.shields.io/npm/v/@xt0rted/expressive-code-file-icons?logo=npm)](https://www.npmjs.com/package/@xt0rted/expressive-code-file-icons)
+[![GitHub Package Registry](https://img.shields.io/badge/github-package_registry-yellow?logo=npm)](https://github.com/xt0rted/expressive-code-file-icons/pkgs/npm/expressive-code-file-icons)
 
 Add Visual Studio Code file icons to your [Expressive Code](https://expressive-code.com/) frames.
 See [my blog post](https://hackingonhacks.com/blog/2025/02/13/adding-file-icons-to-expressive-code-frames) showing how this works with various code blocks.
