@@ -114,6 +114,6 @@ jobs:
 
       - name: Publish to GPR
         working-directory: package
-        run: npm whoami && npm publish --ignore-scripts
+        run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
