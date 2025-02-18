@@ -29,7 +29,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4.2.2
 
-      - name: Install Node
+      - name: Set up Node.js
         uses: actions/setup-node@v4.2.0
         with:
           node-version: ${{ matrix.node }}
@@ -38,12 +38,14 @@ jobs:
 
       - run: npm run package
 
+      - run: npm pack
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4.6.0
         with:
           name: "node-${{ matrix.node }}"
-          compression-level: 9
-          path: dist/
+          path: xt0rted-expressive-code-file-icons-*.tgz
+
   lint:
     runs-on: ubuntu-latest
 
