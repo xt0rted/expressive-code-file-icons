@@ -24,12 +24,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4.2.2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4.2.0
-        with:
-          node-version: latest
-          registry-url: "https://registry.npmjs.org"
-
       - name: Get changelog entry
         uses: mindsers/changelog-reader-action@v2.2.3
         id: changelog_reader
@@ -52,10 +46,27 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version: latest
+          registry-url: "https://registry.npmjs.org"
+
       - run: npm ci
 
       - run: npm run package
 
-      - run: npm whoami && npm --ignore-scripts publish --access public --provenance
+      - name: Publish to NPM
+        run: npm whoami && npm publish --ignore-scripts --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.2.0
+        with:
+          registry-url: "https://npm.pkg.github.com"
+
+      - name: Publish to GPR
+        run: npm publish --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
