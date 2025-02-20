@@ -56,6 +56,8 @@ jobs:
 
       - run: npm run package
 
+      - run: npm test
+
       - name: Publish to NPM
         run: npm whoami && npm publish --ignore-scripts --access public --provenance
         env:
@@ -70,3 +72,7 @@ jobs:
         run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+
+      - name: Report coverage
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2.8.0

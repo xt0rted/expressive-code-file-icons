@@ -17,6 +17,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      pull-requests: write
+
     strategy:
       fail-fast: false
       matrix:
@@ -38,6 +42,8 @@ jobs:
 
       - run: npm run package
 
+      - run: npm test
+
       - run: npm pack
 
       - name: Upload build artifacts
@@ -45,6 +51,10 @@ jobs:
         with:
           name: "node-${{ matrix.node }}"
           path: xt0rted-expressive-code-file-icons-*.tgz
+
+      - name: Report coverage
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2.8.0
 
   lint:
     runs-on: ubuntu-latest
@@ -82,6 +92,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      contents: read
       packages: write
 
     steps:

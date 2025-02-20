@@ -15,4 +15,8 @@
   },
   "typescript.inlayHints.parameterNames.enabled": "all",
   "typescript.tsdk": "node_modules\\typescript\\lib",
+  "cSpell.words": [
+    "shiki",
+    "vitest"
+  ],
 }

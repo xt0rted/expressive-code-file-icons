@@ -13,5 +13,10 @@ npm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# tests
+coverage/
+__actual__/
+
+# misc.
 icons.txt
 *.tgz
