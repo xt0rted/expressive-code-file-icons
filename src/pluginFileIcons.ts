@@ -1,7 +1,7 @@
-import { addClassName, select, setProperty } from "@expressive-code/core/hast";
+import { select, setProperty } from "@expressive-code/core/hast";
 
-import { isTerminal } from "./utils/hast.js";
-import { iconForFile } from "./utils/icons.js";
+import { addClassNames, isTerminal } from "./utilities/hast.js";
+import { iconForFile } from "./utilities/icons.js";
 
 import type { ExpressiveCodePlugin } from "@expressive-code/core";
 
@@ -41,9 +41,7 @@ export function pluginFileIcons({ iconClass, titleClass }: PluginFileIconsOption
 
         setProperty(iconSvgElement, "aria-hidden", "true");
 
-        if (iconClass) {
-          addClassName(iconSvgElement, iconClass);
-        }
+        addClassNames(iconSvgElement, iconClass?.split(" "));
 
         const title = select("figcaption > .title", renderData.blockAst);
 
@@ -53,9 +51,7 @@ export function pluginFileIcons({ iconClass, titleClass }: PluginFileIconsOption
 
         title.children?.unshift(iconSvgElement);
 
-        if (titleClass) {
-          addClassName(title, titleClass);
-        }
+        addClassNames(title, titleClass?.split(" "));
       },
     },
   };

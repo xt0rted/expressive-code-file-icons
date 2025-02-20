@@ -6,3 +6,4 @@
 *.mjs text eol=lf
 *.ts text eol=lf
 *.tsx text oel=lf
+*.ts.snap text oel=lf
