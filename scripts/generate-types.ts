@@ -10,6 +10,7 @@ const iconFiles = await fs.readdir(iconSource);
 
 const iconNames = iconFiles
   .filter((fileName) => fileName.startsWith("file_type_"))
+  .filter((fileName) => !fileName.startsWith("file_type_light_"))
   .map((fileName) => fileName.replace(/^file_type_/, "").replace(/\.svg$/, ""));
 
 const iconEnum = iconNames.map((fileName) => `  | "${fileName}"`);
