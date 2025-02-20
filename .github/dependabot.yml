@@ -16,3 +16,7 @@ updates:
       expressive-code:
         patterns:
           - "@expressive-code/*"
+      vitest:
+        patterns:
+          - "@vitest/*"
+          - "vitest"

@@ -1,5 +1,9 @@
 {
   "recommendations": [
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "vitest.explorer",
+    "yoavbls.pretty-ts-errors",
+    "editorconfig.editorconfig",
+    "bierner.comment-tagged-templates"
   ]
 }
