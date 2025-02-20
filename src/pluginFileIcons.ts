@@ -5,7 +5,7 @@ import { iconForFile } from "./utils/icons.js";
 
 import type { ExpressiveCodePlugin } from "@expressive-code/core";
 
-import type { IconName } from "./icon-names.js";
+import type { IconName } from "./iconNames.js";
 import type { PluginFileIconsOptions } from "./options.js";
 
 export function pluginFileIcons({ iconClass, titleClass }: PluginFileIconsOptions = {}): ExpressiveCodePlugin {

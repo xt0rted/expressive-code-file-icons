@@ -1,4 +1,4 @@
-import type { IconName } from "./icon-names.js";
+import type { IconName } from "./iconNames.js";
 
 export interface PluginFileIconsProps {
   icon: IconName;

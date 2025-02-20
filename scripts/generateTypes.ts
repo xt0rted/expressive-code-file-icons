@@ -2,7 +2,7 @@ import * as fs from "node:fs/promises";
 import { EOL } from "node:os";
 import * as path from "node:path";
 
-const typeFileName = "icon-names.ts";
+const typeFileName = "iconNames.ts";
 const typeFileLocation = "./src";
 const iconSource = "./src/icons";
 

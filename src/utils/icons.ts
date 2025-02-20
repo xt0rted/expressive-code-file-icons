@@ -8,7 +8,7 @@ import { fileExists } from "./node.js";
 
 import type { Element } from "@expressive-code/core/hast";
 
-import type { IconName } from "../icon-names.js";
+import type { IconName } from "../iconNames.js";
 
 async function lookUpIcon(iconOverride?: IconName): Promise<string | undefined> {
   if (iconOverride) {

@@ -45,7 +45,7 @@
     "package": "npm run clean && npm run icons && npm run build",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "types": "node --no-warnings=ExperimentalWarning ./scripts/generate-types.ts"
+    "types": "node --no-warnings=ExperimentalWarning ./scripts/generateTypes.ts"
   },
   "dependencies": {
     "@expressive-code/core": "^0.40.2",
