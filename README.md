@@ -132,7 +132,7 @@ npm install @xt0rted/expressive-code-file-icons
 
 ## Supported icons
 
-See [icon-names.ts](src/icon-names.ts) for all supported icons.
+See [iconNames.ts](src/iconNames.ts) for all supported icons.
 
 This plugin uses the icons from [vscode-icons](https://github.com/vscode-icons/vscode-icons) and will be kept current as best as possible.
 If there's an issue with an icon, or one is missing, open an issue about it.
