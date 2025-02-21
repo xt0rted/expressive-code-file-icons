@@ -9,12 +9,17 @@ trim_trailing_whitespace = true
 
 [*.{js,cjs,mjs,ts,tsx}]
 indent_size = 2
+end_of_line = lf
 
 [*.json]
 indent_size = 2
 
 [*.{md,mdx}]
 indent_size = 2
+
+[*.ts.snap]
+indent_size = 2
+end_of_line = lf
 
 [*.svg]
 indent_size = 2

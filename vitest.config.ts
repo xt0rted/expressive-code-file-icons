@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { coverageConfigDefaults, defineConfig } from "vitest/config";
 import { isCI } from "std-env";
 
 export default defineConfig({
@@ -7,6 +7,7 @@ export default defineConfig({
       enabled: isCI,
       reportOnFailure: true,
       reporter: ["text", "html", "json", "json-summary"],
+      exclude: [...coverageConfigDefaults.exclude, "scripts/**", "svgo.config.js"],
     },
   },
 });
