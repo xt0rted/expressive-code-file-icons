@@ -1,7 +1,9 @@
-import { ExpressiveCodeBlockProps, ExpressiveCodeEngine, PartialAllowUndefined } from "@expressive-code/core";
+import { ExpressiveCodeEngine } from "@expressive-code/core";
 import { describe, expect, test } from "vitest";
 
 import { pluginFileIcons } from "../src/pluginFileIcons.js";
+
+import type { ExpressiveCodeBlockProps, PartialAllowUndefined } from "@expressive-code/core";
 
 import type { IconName } from "../src/iconNames.js";
 
