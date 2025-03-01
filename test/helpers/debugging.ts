@@ -1,5 +1,6 @@
-import { ExpressiveCodePlugin } from "@expressive-code/core";
 import { stripIndent } from "common-tags";
+
+import type { ExpressiveCodePlugin } from "@expressive-code/core";
 
 import type { PluginFileIconsOptions } from "../../src/options.js";
 

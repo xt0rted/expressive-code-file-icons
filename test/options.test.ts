@@ -1,4 +1,3 @@
-import { ExpressiveCodePlugin } from "@expressive-code/core";
 import { getClassNames } from "@expressive-code/core/hast";
 import { pluginFrames } from "@expressive-code/plugin-frames";
 import { describe, expect, test } from "vitest";
@@ -8,6 +7,8 @@ import { pluginDebugStyles } from "./helpers/debugging.js";
 import { iconSelector, selectSingle, titleSelector } from "./helpers/hast.js";
 import { buildFixture, renderAndOutputHtmlSnapshot } from "./helpers/testing.js";
 import { testName } from "./helpers/vitest.js";
+
+import type { ExpressiveCodePlugin } from "@expressive-code/core";
 
 const defaultPlugins: ExpressiveCodePlugin[] = [pluginDebugStyles(), pluginFrames()];
 

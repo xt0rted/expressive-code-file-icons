@@ -1,4 +1,3 @@
-import { ExpressiveCodePlugin } from "@expressive-code/core";
 import { pluginFrames } from "@expressive-code/plugin-frames";
 import { describe, test } from "vitest";
 
@@ -7,6 +6,8 @@ import { debugSettings, pluginDebugStyles } from "./helpers/debugging.js";
 import { selectSingle, titleSelector } from "./helpers/hast.js";
 import { buildFixture, renderAndOutputHtmlSnapshot } from "./helpers/testing.js";
 import { testName } from "./helpers/vitest.js";
+
+import type { ExpressiveCodePlugin } from "@expressive-code/core";
 
 describe("renders an icon in the title", async () => {
   const plugins: ExpressiveCodePlugin[] = [pluginDebugStyles(), pluginFrames(), pluginFileIcons(debugSettings)];
