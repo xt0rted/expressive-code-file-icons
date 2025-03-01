@@ -3,6 +3,8 @@
     "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "nodenext",
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
     "strict": true,
     "noImplicitAny": false,
     "noUnusedLocals": true,
