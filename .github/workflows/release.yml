@@ -75,4 +75,4 @@ jobs:
 
       - name: Report coverage
         if: always()
-        uses: davelosert/vitest-coverage-report-action@v2.8.1
+        uses: davelosert/vitest-coverage-report-action@v2.8.2
