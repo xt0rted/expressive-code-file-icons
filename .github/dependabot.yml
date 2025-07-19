@@ -16,6 +16,7 @@ updates:
       expressive-code:
         patterns:
           - "@expressive-code/*"
+          - "expressive-code"
       prettier:
         patterns:
           - "prettier"
