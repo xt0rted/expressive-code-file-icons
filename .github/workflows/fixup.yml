@@ -62,7 +62,7 @@ jobs:
           token: ${{ steps.generate-token.outputs.token }}
 
       - name: Install Node
-        uses: actions/setup-node@v5.0.0
+        uses: actions/setup-node@v6.0.0
         with:
           node-version: latest
 
