@@ -31,7 +31,7 @@ jobs:
           version: ${{ steps.tag_name.outputs.current_version }}
 
       - name: Update release with changelog contents
-        uses: softprops/action-gh-release@v2.3.3
+        uses: softprops/action-gh-release@v2.4.1
         id: release_updater
         with:
           body: ${{ steps.changelog_reader.outputs.changes }}
