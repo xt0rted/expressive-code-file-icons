@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@expressive-code/plugin-shiki": "^0.40.2",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.2",
     "@vitest/coverage-v8": "^4.0.5",
     "cpy-cli": "^6.0.0",
     "prettier": "^3.6.2",
